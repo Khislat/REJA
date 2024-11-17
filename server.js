@@ -6,11 +6,11 @@ const fs = require("fs");
 
 
 let user;
-fs.readFile("/database/user.json", "utf8", (err, data) => {
+fs.readFile('./database/user.json', "utf8", (err, data) => {
     if(err) {
         console.log("ERROR:", err);
     } else {
-        user = JSON.parse(data)
+        user = JSON.parse(data);
     }
 });
 
@@ -25,12 +25,12 @@ app.set("views", "views");
 app.set("view engine", "ejs");
 
 // 4. Routing code
-app.post("/create-item", (req, res) =>{
+app.post("/create-item", (req, res) => {
    // TODO: code with db here
 });
 
 app.get("/author", (req, res) => {
-    res.render("author", {user: user });
+    res.render('author.ejs', {user: user });
 });
 
 
@@ -39,16 +39,16 @@ app.get("/author", (req, res) => {
 app.get("/", function (req, res) {
     res.render("harid");
 });
-/*
-app.get("/hello", function (req, res) {
-    res.end("<h1>Hello World by Roy</h1>");
-});
-app.get("/gift", function (req, res) {
-    res.end("<h1>Siz sovgalar bolimidasiz</h1>");
-});
-*/
+
 const server = http.createServer(app);
 let PORT = 3000;
 server.listen(PORT,function () {
     console.log(`The server is running succesfully on port: ${PORT}`);
 });
+
+
+
+
+
+
+

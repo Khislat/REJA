@@ -15,22 +15,25 @@ fs.readFile('./database/user.json', "utf8", (err, data) => {
 });
 
 // 1.Kirish code
-app.use(express.static("public")); 
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.static("public"));  //MidleWare DP => public
+app.use(express.json()); //MidleWeare DP => Rest API
+app.use(express.urlencoded({extended: true})); // Midlware DP => Traditional API
 
 // 2. Session code
 // 3. Views code
-app.set("views", "views");
+app.set("views","views");
 app.set("view engine", "ejs");
 
 // 4. Routing code
-app.post("/create-item", (req, res) => {
-   // TODO: code with db here
+
+
+app.post("/create-item", (req, res) => { // Bu kod serverga kelayotgan POST so‘rovdagi ma'lumotlarni o‘qiydi va ularga javoban oddiy JSON javob qaytaradi.
+   console.log(req.body);
+   res.json({test: "You loser"});
 });
 
 app.get("/author", (req, res) => {
-    res.render('author.ejs', {user: user });
+    res.render('author.ejs',{ user : user });
 });
 
 
@@ -47,8 +50,13 @@ server.listen(PORT,function () {
 });
 
 
+// Frontend development: BSSR(EJS) vs SPA(React)
 
+/* API REQUEST 
+        Types => Traditional API | Rest API | GraphQL API
+        Structures => Header | Body
+        Methods => get | post
+*/        
 
-
-
+//  PATTERN: Arcitecuture | Design
 

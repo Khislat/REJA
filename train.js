@@ -127,7 +127,7 @@ fetchData(() => {
     console.log("This is an asynchronous callback.");
 });
 */
-
+/*
 // DEFINE
 function qoldiqQaytar (a, b , callback) {
    if ( b === 0) {
@@ -145,3 +145,25 @@ qoldiqQaytar (10, 3, (err,data) => {
         console.log("Qoldiq:", data);
     }
 })
+*/
+
+// ********** Task-B **************
+
+/* B-TASK: 
+
+Shunday function tuzing, u 1ta string parametrga ega bolsin, hamda osha stringda qatnashgan raqamlarni sonini bizga return qilsin.
+MASALAN countDigits("ad2a54y79wet0sfgb9") 7ni return qiladi
+*/
+
+// DEFINE
+function countDigits(str) {
+    let count = 0;
+    for (let i = 0; i < str.length; i++) {
+        if (!isNaN(str[i]) && str[i] !== ' ') {
+            count++;
+        }
+    }
+    return count;
+}
+
+console.log(countDigits("ad2a54y79wet0sfgb9"));

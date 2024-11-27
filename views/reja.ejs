@@ -31,14 +31,14 @@
        
 
         <ul id="item-list" class="list-group pb-5">
-            <% items.map(function(item) { %>
+            <% items.map(function(ele) { %>
                 <li class="list-group-item list-group-item-info d-flex align-items-center justify-content-between" >
-                    <span class="item-text"><%=item.reja %></span>
+                    <span class="item-text"><%=ele.reja %></span>
                     <div>
-                        <button data-id="<%=item.id%>" class="edit-me btn btn-secondary btn-sm mr-1">
+                        <button data-id="<%=ele._id%>" class="edit-me btn btn-secondary btn-sm mr-1">
                             Ozgartirish
                         </button>
-                        <button data-id="<%=item.id%>" class="delete-me btn btn-danger btn-sm mr-1">Ochirish</button>
+                        <button data-id="<%=ele._id%>" class="delete-me btn btn-danger btn-sm mr-1">Ochirish</button>
                     </div>
                 </li>
             <% }) %>
@@ -47,6 +47,10 @@
 
         <button id="clean-all" class="btn btn-danger" style="border-radius: 20px;">Hamma Rejalarni ochirish</button>
     </div>
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/browser.js"></script>
     
 </body>
 </html>

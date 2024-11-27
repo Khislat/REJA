@@ -1,13 +1,5 @@
 /*
-console.log("Jack Ma maslaxatlari");
-const list = [
-    "yaxshi talaba boling", // 0-20
-    "togri boshliq tanlang va koproq xato qiling", // 20-30
-    "uzingizga ishlashni boshlang", // 30-40
-    "siz kuchli bolgan narsalarni qiling", // 40-50
-    "yoshlarga investitsiya qiling", // 50-60
-    "endi dam oling, foydasi yoq endi", // 60 
-];
+c
 
 function maslaxatBering(a, callback) {
     if(typeof a !== 'number') callback("insert a number", null);
@@ -154,7 +146,7 @@ qoldiqQaytar (10, 3, (err,data) => {
 Shunday function tuzing, u 1ta string parametrga ega bolsin, hamda osha stringda qatnashgan raqamlarni sonini bizga return qilsin.
 MASALAN countDigits("ad2a54y79wet0sfgb9") 7ni return qiladi
 */
-
+/*
 // DEFINE
 function countDigits(str) {
     let count = 0;
@@ -167,3 +159,63 @@ function countDigits(str) {
 }
 
 console.log(countDigits("ad2a54y79wet0sfgb9"));
+*/
+
+console.log("Jack Ma maslaxatlari");
+const list = [
+    "yaxshi talaba boling", // 0-20
+    "togri boshliq tanlang va koproq xato qiling", // 20-30
+    "uzingizga ishlashni boshlang", // 30-40
+    "siz kuchli bolgan narsalarni qiling", // 40-50
+    "yoshlarga investitsiya qiling", // 50-60
+    "endi dam oling, foydasi yoq endi", // 60 
+];
+
+// function maslaxatBering(a, callback) {
+//   if(typeof a !== "number") callback("Error", null);
+//   else if(a <= 20) callback(null, list[0]);
+//   else if(a > 30) callback(null, list[1]);
+//   else if(a > 40) callback(null, list[2]);
+//   else if(a > 30) callback(null, list[3]);
+//   else {
+//     callback(null, list[3]);
+//   }
+// } 
+
+// maslaxatBering(30, (err,data) => {
+//     if(err){
+//         console.log("Faqat raqam kirgazing", err);
+//     }else {
+//         console.log(`Jack Mani maslaxati `, data);
+//     }
+// });
+
+async function maslaxatBering(age) {
+    if(typeof age !== "number") throw new Error("Error");
+    else if( age < 20) return list[0];
+    else if( age > 30) return list[1];
+    else if( age > 40) return list[2];
+    else if( age > 50) return list[3];
+    else if( age > 60) return list[4];
+    else {
+        return list[5];
+    }
+}
+
+// maslaxatBering("fdjsf")
+// .then((data) => {
+//     console.log("Javob:",data);
+// })
+// .catch((err) => {
+//     console.log("Faqat son kirgazing",err);
+// });
+
+
+async function run() {
+    let javob = await maslaxatBering(10)
+        console.log(javob)
+    javob = await maslaxatBering(70)
+        console.log(javob)
+}
+
+run()

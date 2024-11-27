@@ -32,16 +32,14 @@ app.set("view engine", "ejs");
 
 app.post("/create-item", (req, res) => { 
     console.log("user entered /create-item");
-    console.log(req.body);
+// Step 3rd: Front-enddan kelgan malumotni qabul qilib olindi
     const new_reja = req.body.reja;
+// Step 4th: Front-enddan kelgan malumot DBga insert qilindi    
     db.collection("plans")
     .insertOne({reja: new_reja}, (err, data) => {
-        if (err) {
-            console.log(err);
-            res.end('something went wrong');
-        } else {
-            res.end("successfuly added")
-        }
+// Step 5th: Databasedagi malumot Front-endga yubordi        
+        res.json(data.ops[0]);
+       
     });
 
 });
@@ -52,9 +50,12 @@ app.get("/author", (req, res) => {
 
 
 
-
+// console.log("1st Step: Client entered to Front end")
 app.get("/", function (req, res) {
     console.log("user entered /");
+    //console.log("2nd Step: Cliet API orqali Backendga request jonatadi")
+
+    //console.log("3rd Step: Back-end => Dabasega request jonatadi")
     db.collection("plans")
     .find()
     .toArray((err, data) => {
@@ -62,7 +63,9 @@ app.get("/", function (req, res) {
             console.log(err);
             res.end("something went wrong");
         }else {
-            
+            //console.log("4th Step: Database => Backendga malumotni olib response jonatadi")
+            console.log(data)
+           // console.log("5th Step: Database => Back-end Front-endga response jonatadi")
             res.render("reja", { items : data});
         }
     });

@@ -46,7 +46,7 @@ document.addEventListener("click", function (e) {
             })
             .catch((err) => {
                 console.log("Iltimos qaytadan xarakat qilin!");
-            });
+            })
            
         };
     };

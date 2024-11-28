@@ -161,15 +161,15 @@ function countDigits(str) {
 console.log(countDigits("ad2a54y79wet0sfgb9"));
 */
 
-console.log("Jack Ma maslaxatlari");
-const list = [
-    "yaxshi talaba boling", // 0-20
-    "togri boshliq tanlang va koproq xato qiling", // 20-30
-    "uzingizga ishlashni boshlang", // 30-40
-    "siz kuchli bolgan narsalarni qiling", // 40-50
-    "yoshlarga investitsiya qiling", // 50-60
-    "endi dam oling, foydasi yoq endi", // 60 
-];
+// console.log("Jack Ma maslaxatlari");
+// const list = [
+//     "yaxshi talaba boling", // 0-20
+//     "togri boshliq tanlang va koproq xato qiling", // 20-30
+//     "uzingizga ishlashni boshlang", // 30-40
+//     "siz kuchli bolgan narsalarni qiling", // 40-50
+//     "yoshlarga investitsiya qiling", // 50-60
+//     "endi dam oling, foydasi yoq endi", // 60 
+// ];
 
 // function maslaxatBering(a, callback) {
 //   if(typeof a !== "number") callback("Error", null);
@@ -190,17 +190,17 @@ const list = [
 //     }
 // });
 
-async function maslaxatBering(age) {
-    if(typeof age !== "number") throw new Error("Error");
-    else if( age < 20) return list[0];
-    else if( age > 30) return list[1];
-    else if( age > 40) return list[2];
-    else if( age > 50) return list[3];
-    else if( age > 60) return list[4];
-    else {
-        return list[5];
-    }
-}
+// async function maslaxatBering(age) {
+//     if(typeof age !== "number") throw new Error("Error");
+//     else if( age < 20) return list[0];
+//     else if( age > 30) return list[1];
+//     else if( age > 40) return list[2];
+//     else if( age > 50) return list[3];
+//     else if( age > 60) return list[4];
+//     else {
+//         return list[5];
+//     }
+// }
 
 // maslaxatBering("fdjsf")
 // .then((data) => {
@@ -211,11 +211,57 @@ async function maslaxatBering(age) {
 // });
 
 
-async function run() {
-    let javob = await maslaxatBering(10)
-        console.log(javob)
-    javob = await maslaxatBering(70)
-        console.log(javob)
-}
+// async function run() {
+//     let javob = await maslaxatBering(10)
+//         console.log(javob)
+//     javob = await maslaxatBering(70)
+//         console.log(javob)
+// }
 
-run()
+// run()
+
+// ************* Tack - C *********************
+
+class Shop {
+    constructor(non, lagmon, cola) {
+        this.products = {
+            non,
+            lagmon,
+            cola,
+        };
+    }
+    
+   
+    time(message) {
+        const currentTime = new Date().toLocaleTimeString();
+        console.log(`${currentTime} ${message}`);
+    };
+    
+    // Qoldiq
+    qoldiq() {
+        const { non, lagmon, cola } = this.products;
+        const currentTime = new Date().toLocaleTimeString();
+        return `Hozir ${currentTime} da ${non}ta non, ${lagmon}ta lagmon va ${cola}ta cola mavjud!`;
+    };
+    
+    // Product sotish
+    sotish(product, soni) {
+        this.products[product] -= soni;
+        this.time(`${product}dan ${soni}ta sotildi.`);
+    };
+    
+    // Product qabul qilish
+    qabul(product, soni) {
+        this.products[product] += soni;
+        this.time(`${product}dan ${soni}ta qabul qilindi.`);
+    };
+    
+};
+  
+const shop = new Shop(4, 5, 2);
+  
+console.log(shop.qoldiq()); // Hozirgi products
+shop.sotish("non", 3); // 3ta non sotiladi
+shop.qabul("cola", 4); // 4ta cola qabul qilinadi
+console.log(shop.qoldiq()); // Qoldiq products
+  

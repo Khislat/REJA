@@ -44,14 +44,33 @@ app.post("/create-item", (req, res) => {
     });
 
 });
-
+// Step 4th: Back-end front-endan sorovni qabul qilib oladi
 app.post("/delete-item", (req, res) => {
     const id = req.body.id;
+    // Step 5th: Databasedan 1ta malumot ochiriladi
     db.collection("plans").deleteOne( {_id : new mongodb.ObjectId(id)},
+    // Step 6th: Front-endga javob yuboradi
      function(err, data) {
         res.json({state: "succes"} );
     }
   );
+});
+
+app.post("/edit-item", (req, res) => {
+    const data = req.body;
+    console.log(data);
+    db.collection("plans").findOneAndUpdate({_id: new mongodb.ObjectId(data.id)}, {$set: {reja: data.new_input} },
+    function(err,data) {
+        res.json({state: "succes"} );
+    });
+});
+
+app.post("/delete-all", (req,res) => {
+    if(req.body.delete_all) {
+        db.collection("plans").deleteMany(function () {
+            res.json({state: "Hamma rejalar o'chirildi"});
+        });   
+    }
 });
 
 app.get("/author", (req, res) => {

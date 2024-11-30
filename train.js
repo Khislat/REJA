@@ -1,6 +1,29 @@
-/*
-c
+//*********** TACK - D */
+function checkContent(str1,str2) {
+    if(str1.length !== str2.length) {
+        return false;
+    }
 
+    let arr1 = [];
+    let arr2 = [];
+
+    for(let i = 0; i < str1.length; i++) {
+        arr1.push(str1[i]);
+        arr2.push(str2[i]);
+    }
+
+    arr1.sort();
+    arr2.sort();
+
+    return arr1.join("") === arr2.join("")
+
+}
+
+console.log(checkContent("mitgroup", "gmtiprou"));
+console.log(checkContent("MIT22", "MIT21"));
+
+
+/*
 function maslaxatBering(a, callback) {
     if(typeof a !== 'number') callback("insert a number", null);
     else if(a <= 20) callback(null,list[0]);
@@ -222,46 +245,47 @@ console.log(countDigits("ad2a54y79wet0sfgb9"));
 
 // ************* Tack - C *********************
 
-class Shop {
-    constructor(non, lagmon, cola) {
-        this.products = {
-            non,
-            lagmon,
-            cola,
-        };
-    }
+// class Shop {
+//     constructor(non, lagmon, cola) {
+//         this.products = {
+//             non,
+//             lagmon,
+//             cola,
+//         };
+//     }
     
    
-    time(message) {
-        const currentTime = new Date().toLocaleTimeString();
-        console.log(`${currentTime} ${message}`);
-    };
+//     time(message) {
+//         const currentTime = new Date().toLocaleTimeString();
+//         console.log(`${currentTime} ${message}`);
+//     };
     
-    // Qoldiq
-    qoldiq() {
-        const { non, lagmon, cola } = this.products;
-        const currentTime = new Date().toLocaleTimeString();
-        return `Hozir ${currentTime} da ${non}ta non, ${lagmon}ta lagmon va ${cola}ta cola mavjud!`;
-    };
+//     // Qoldiq
+//     qoldiq() {
+//         const { non, lagmon, cola } = this.products;
+//         const currentTime = new Date().toLocaleTimeString();
+//         return `Hozir ${currentTime} da ${non}ta non, ${lagmon}ta lagmon va ${cola}ta cola mavjud!`;
+//     };
     
-    // Product sotish
-    sotish(product, soni) {
-        this.products[product] -= soni;
-        this.time(`${product}dan ${soni}ta sotildi.`);
-    };
+//     // Product sotish
+//     sotish(product, soni) {
+//         this.products[product] -= soni;
+//         this.time(`${product}dan ${soni}ta sotildi.`);
+//     };
     
-    // Product qabul qilish
-    qabul(product, soni) {
-        this.products[product] += soni;
-        this.time(`${product}dan ${soni}ta qabul qilindi.`);
-    };
+//     // Product qabul qilish
+//     qabul(product, soni) {
+//         this.products[product] += soni;
+//         this.time(`${product}dan ${soni}ta qabul qilindi.`);
+//     };
     
-};
+// };
   
-const shop = new Shop(4, 5, 2);
+// const shop = new Shop(4, 5, 2);
   
-console.log(shop.qoldiq()); // Hozirgi products
-shop.sotish("non", 3); // 3ta non sotiladi
-shop.qabul("cola", 4); // 4ta cola qabul qilinadi
-console.log(shop.qoldiq()); // Qoldiq products
+// console.log(shop.qoldiq()); // Hozirgi products
+// shop.sotish("non", 3); // 3ta non sotiladi
+// shop.qabul("cola", 4); // 4ta cola qabul qilinadi
+// console.log(shop.qoldiq()); // Qoldiq products
   
+

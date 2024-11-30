@@ -1,3 +1,5 @@
+
+
 console.log("FrontEnd JS ishga tushdi");
 
 let creatField = document.getElementById("create-field");
@@ -32,14 +34,17 @@ document.getElementById("create-form").addEventListener("submit" , function(e) {
         console.log("Iltimos qaytadan xarakat qilin!");
     })
 });
-
+// Step 1st: User click qiladi
 document.addEventListener("click", function (e) {
      console.log(e);
     //Delete operations
+    // Step 2nd: Delete classi borligini tekshirish
     if(e.target.classList.contains("delete-me")) {
         if(confirm("Aniq o'chirmoqchimisiz?")) {
+    // Step 3rd:Back-endga sorov jonatish        
             axios
             .post("/delete-item", {id: e.target.getAttribute("data-id")})
+            // Step 7th: Qabulqilingan sorov orqali Htmlni parent elementidan bitta element ochiradi
             .then((response) => {
                 console.log(response.data);
                 e.target.parentElement.parentElement.remove();
@@ -55,6 +60,30 @@ document.addEventListener("click", function (e) {
 
     // Edit operations
     if(e.target.classList.contains("edit-me")) {
-        alert("Siz edit tugmasini bosdingiz");
+       let userInput = prompt("O'zgartirishni kiriting", e.target.parentElement.parentElement.querySelector(".item-text").innerHTML);
+
+       if(userInput) {
+        axios
+        .post("/edit-item", {id: e.target.getAttribute("data-id"), new_input: userInput})
+        .then((response) => {
+            console.log(response.data);
+            e.target.parentElement.parentElement.querySelector(".item-text").innerHTML = userInput;
+
+        }).catch((err) => {
+            console.log("Iltimos qaytadan xarakat qilin!");
+        });
+       }
     }
 });
+
+
+document.getElementById("clean-all").addEventListener("click", function() {
+    if(confirm("Rejalarni ochirmoqchimisiz?")) {
+        axios.post("/delete-all", {delete_all: true })
+    .then((response) => {
+        alert(response.data.state);
+        document.location.reload();
+    })
+    }
+    
+})

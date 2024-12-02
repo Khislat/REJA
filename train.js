@@ -1,26 +1,39 @@
-//*********** TACK - D */
-function checkContent(str1,str2) {
-    if(str1.length !== str2.length) {
-        return false;
-    }
+// //*********** TACK - E */
 
-    let arr1 = [];
-    let arr2 = [];
 
-    for(let i = 0; i < str1.length; i++) {
-        arr1.push(str1[i]);
-        arr2.push(str2[i]);
-    }
-
-    arr1.sort();
-    arr2.sort();
-
-    return arr1.join("") === arr2.join("")
-
+function getReverse(str) {
+    return str.split("").reverse().join("");
 }
+  
+  
+console.log(getReverse("hello"));
+console.log(getReverse("MIT-TACK"));
 
-console.log(checkContent("mitgroup", "gmtiprou"));
-console.log(checkContent("MIT22", "MIT21"));
+
+
+// //*********** TACK - D */
+// function checkContent(str1,str2) {
+//     if(str1.length !== str2.length) {
+//         return false;
+//     }
+
+//     let arr1 = [];
+//     let arr2 = [];
+
+//     for(let i = 0; i < str1.length; i++) {
+//         arr1.push(str1[i]);
+//         arr2.push(str2[i]);
+//     }
+
+//     arr1.sort();
+//     arr2.sort();
+
+//     return arr1.join("") === arr2.join("")
+
+// }
+
+// console.log(checkContent("mitgroup", "gmtiprou"));
+// console.log(checkContent("MIT22", "MIT21"));
 
 
 /*

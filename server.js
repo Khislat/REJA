@@ -21,8 +21,7 @@ mongodb.connect(connectionString, {useNewUrlParser: true,
 <<<<<<< HEAD
         let PORT = 6001;
 =======
-        let PORT = 6100;
->>>>>>> 0bf8c92eff00993d0743c1a0a6f59f7a12f1a830
+       
         server.listen(PORT,function () {
             console.log(`The server is running succesfully on port: ${PORT}, http://localhost:${PORT}`);
 });

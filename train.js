@@ -1,3 +1,16 @@
+//*********** TACK - E */
+
+function getReverse(str){
+    return str.split("").reverse().join("");
+}
+  
+  
+console.log(getReverse("hello"));
+console.log(getReverse("MIT TACK"));
+
+
+
+
 //*********** TACK - D */
 function checkContent(str1,str2) {
     if(str1.length !== str2.length) {

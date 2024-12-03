@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //*********** TACK - E */
 
 function getReverse(str){

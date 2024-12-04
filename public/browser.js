@@ -1,5 +1,3 @@
-
-
 console.log("FrontEnd JS ishga tushdi");
 
 let creatField = document.getElementById("create-field");
@@ -53,7 +51,9 @@ document.addEventListener("click", function (e) {
                 console.log("Iltimos qaytadan xarakat qilin!");
             })
            
-        };
+        }else {
+            alert("Sizning rejangiz ochirilmadi")
+        }
     };
 
 
@@ -66,6 +66,9 @@ document.addEventListener("click", function (e) {
         axios
         .post("/edit-item", {id: e.target.getAttribute("data-id"), new_input: userInput})
         .then((response) => {
+            if(response) {
+                alert(`Siznng rejangiz ${userInput}ga ozgardi`)
+            }
             console.log(response.data);
             e.target.parentElement.parentElement.querySelector(".item-text").innerHTML = userInput;
 
@@ -84,6 +87,8 @@ document.getElementById("clean-all").addEventListener("click", function() {
         alert(response.data.state);
         document.location.reload();
     })
+    }else {
+        alert("Sizn Cancele qildingiz")
     }
     
 })

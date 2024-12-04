@@ -1,12 +1,27 @@
+ //*********** TACK - F */
+
+function findDoublers(str) {
+    for (let i = 0; i < str.length; i++) {
+        if (str.indexOf(str[i]) !== i) {
+            return true;  
+        }
+    }
+    return false;  
+}
+
+console.log(findDoublers("hello"));
+console.log(findDoublers("help"));
+
+
 //*********** TACK - E */
 
-function getReverse(str){
-    return str.split("").reverse().join("");
-}
+// function getReverse(str){
+//     return str.split("").reverse().join("");
+// }
   
   
-console.log(getReverse("hello"));
-console.log(getReverse("MIT TACK"));
+// console.log(getReverse("hello"));
+// console.log(getReverse("MIT TACK"));
 
 
 
@@ -25,15 +40,15 @@ function checkContent(str1,str2) {
         arr2.push(str2[i]);
     }
 
-    arr1.sort();
-    arr2.sort();
+//     arr1.sort();
+//     arr2.sort();
 
-    return arr1.join("") === arr2.join("")
+//     return arr1.join("") === arr2.join("")
 
-}
+// }
 
-console.log(checkContent("mitgroup", "gmtiprou"));
-console.log(checkContent("MIT22", "MIT21"));
+// console.log(checkContent("mitgroup", "gmtiprou"));
+// console.log(checkContent("MIT22", "MIT21"));
 
 
 /*

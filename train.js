@@ -27,23 +27,18 @@ console.log(findDoublers("help"));
 
 
 //*********** TACK - D */
-// 
+function checkContent(str1,str2) {
+    if(str1.length !== str2.length) {
+        return false;
+    }
 
+    let arr1 = [];
+    let arr2 = [];
 
-
-// //*********** TACK - D */
-// function checkContent(str1,str2) {
-//     if(str1.length !== str2.length) {
-//         return false;
-//     }
-
-//     let arr1 = [];
-//     let arr2 = [];
-
-//     for(let i = 0; i < str1.length; i++) {
-//         arr1.push(str1[i]);
-//         arr2.push(str2[i]);
-//     }
+    for(let i = 0; i < str1.length; i++) {
+        arr1.push(str1[i]);
+        arr2.push(str2[i]);
+    }
 
 //     arr1.sort();
 //     arr2.sort();

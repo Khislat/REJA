@@ -30,6 +30,28 @@ app.set("view engine", "ejs");
 
 // 4. Routing code
 
+// console.log("1st Step: Client entered to Front end")
+app.get("/", function (req, res) {
+    console.log("user entered /");
+    //console.log("2nd Step: Cliet API orqali Backendga request jonatadi")
+
+    //console.log("3rd Step: Back-end => Dabasega request jonatadi")
+    db.collection("plans")
+    .find()
+    .toArray((err, data) => {
+        if(err) {
+            console.log(err);
+            res.end("something went wrong");
+        } else {
+            //console.log("4th Step: Database => Backendga malumotni olib response jonatadi")
+            // console.log(data)
+           // console.log("5th Step: Database => Back-end Front-endga response jonatadi")
+            res.render("reja", { items : data});
+        }
+    });
+    
+});
+
 
 app.post("/create-item", (req, res) => { 
     console.log("user entered /create-item");
@@ -79,27 +101,6 @@ app.get("/author", (req, res) => {
 
 
 
-// console.log("1st Step: Client entered to Front end")
-app.get("/", function (req, res) {
-    console.log("user entered /");
-    //console.log("2nd Step: Cliet API orqali Backendga request jonatadi")
-
-    //console.log("3rd Step: Back-end => Dabasega request jonatadi")
-    db.collection("plans")
-    .find()
-    .toArray((err, data) => {
-        if(err) {
-            console.log(err);
-            res.end("something went wrong");
-        }else {
-            //console.log("4th Step: Database => Backendga malumotni olib response jonatadi")
-            // console.log(data)
-           // console.log("5th Step: Database => Back-end Front-endga response jonatadi")
-            res.render("reja", { items : data});
-        }
-    });
-    
-});
 
 module.exports = app;
 

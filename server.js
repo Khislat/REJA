@@ -18,6 +18,7 @@ mongodb.connect(connectionString, {useNewUrlParser: true,
         console.log("Step 4th: MongoDB connect succesed after Back-end server connect")
         const app = require("./app");
         const server = http.createServer(app);
+
         let PORT = 6001;
         server.listen(PORT,function () {
             console.log(`The server is running succesfully on port: ${PORT}, http://localhost:${PORT}`);

@@ -1,39 +1,59 @@
+ //*********** TACK - F */
+
+function findDoublers(str) {
+    for (let i = 0; i < str.length; i++) {
+        if (str.indexOf(str[i]) !== i) {
+            return true;  
+        }
+    }
+    return false;  
+}
+
+console.log(findDoublers("hello"));
+console.log(findDoublers("help"));
+
+
 //*********** TACK - E */
 
-function getReverse(str){
-    return str.split("").reverse().join("");
-}
+// function getReverse(str){
+//     return str.split("").reverse().join("");
+// }
   
   
-console.log(getReverse("hello"));
-console.log(getReverse("MIT TACK"));
+// console.log(getReverse("hello"));
+// console.log(getReverse("MIT TACK"));
 
 
 
 
 //*********** TACK - D */
-function checkContent(str1,str2) {
-    if(str1.length !== str2.length) {
-        return false;
-    }
+// 
 
-    let arr1 = [];
-    let arr2 = [];
 
-    for(let i = 0; i < str1.length; i++) {
-        arr1.push(str1[i]);
-        arr2.push(str2[i]);
-    }
 
-    arr1.sort();
-    arr2.sort();
+// //*********** TACK - D */
+// function checkContent(str1,str2) {
+//     if(str1.length !== str2.length) {
+//         return false;
+//     }
 
-    return arr1.join("") === arr2.join("")
+//     let arr1 = [];
+//     let arr2 = [];
 
-}
+//     for(let i = 0; i < str1.length; i++) {
+//         arr1.push(str1[i]);
+//         arr2.push(str2[i]);
+//     }
 
-console.log(checkContent("mitgroup", "gmtiprou"));
-console.log(checkContent("MIT22", "MIT21"));
+//     arr1.sort();
+//     arr2.sort();
+
+//     return arr1.join("") === arr2.join("")
+
+// }
+
+// console.log(checkContent("mitgroup", "gmtiprou"));
+// console.log(checkContent("MIT22", "MIT21"));
 
 
 /*
